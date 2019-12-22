@@ -15,12 +15,6 @@ import java.util.Date;
 @JsonIgnoreProperties(value = {"createdAt","updatedAt"}, allowGetters = true)
 public abstract class Auditable implements Serializable
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private Long id;
-
     @Column(nullable = false, updatable = false)
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
