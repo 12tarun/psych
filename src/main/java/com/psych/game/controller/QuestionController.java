@@ -1,7 +1,7 @@
 package com.psych.game.controller;
 
-import com.psych.game.model.Player;
-import com.psych.game.repository.PlayerRepository;
+import com.psych.game.model.Question;
+import com.psych.game.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,21 +11,21 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/dev")
-public class PlayerController
+public class QuestionController
 {
     @Autowired
-    private PlayerRepository playerRepository;
+    private QuestionRepository questionRepository;
 
-    @GetMapping("/players")
-    public List<Player> getAllPlayers()
+    @GetMapping("/questions")
+    public List<Question> getAllQuestions()
     {
-        return playerRepository.findAll();
+        return questionRepository.findAll();
     }
 
-    @GetMapping("/players/{id}")
-    public Player getPlayerById(@PathVariable(value = "id") Long id) throws Exception
+    @GetMapping("/questions/{id}")
+    public Question getQuestionById(@PathVariable(value = "id") Long id) throws Exception
     {
-        return playerRepository.findById(id).orElseThrow(() -> new Exception("Player not found."));
+        return questionRepository.findById(id).orElseThrow(() -> new Exception("Question not found."));
     }
 
 /*    @PostMapping("/players")
@@ -50,3 +50,4 @@ public class PlayerController
         return  ResponseEntity.ok().build();
     } */
 }
+

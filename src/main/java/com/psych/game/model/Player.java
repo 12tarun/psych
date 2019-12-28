@@ -30,7 +30,7 @@ public class Player extends Auditable
     @Getter
     @Setter
     @OneToOne
-    private PlayerStats stats;
+    private Stats stats;
 
     @Getter
     @Setter
